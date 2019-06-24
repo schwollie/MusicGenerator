@@ -1,12 +1,12 @@
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 import mido
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib as mpl
 from matplotlib.colors import colorConverter
-from music21 import instrument, note, stream, chord
+
 
 # inherit the origin mido class
-class MidiFile(mido.MidiFile):
+class MidiFile2(mido.MidiFile):
 
     def __init__(self, filename):
 
@@ -288,7 +288,7 @@ class MidiFile(mido.MidiFile):
 
 
 if __name__ == "__main__":
-    mid = MidiFile("midi/beethoven/pathetique_3_format0.mid")
+    mid = MidiFile2("midi/beethoven/pathetique_3_format0.mid")
 
     # get the list of all events
     # events = mid.get_events()
@@ -296,7 +296,7 @@ if __name__ == "__main__":
     # get the np array of piano roll image
     roll = mid.get_roll()
     print(roll[0].shape)
-    MidiFile.to_mid(roll)
+    MidiFile2.to_mid(roll)
 
     # draw piano roll by pyplot
     #mid.draw_roll()
